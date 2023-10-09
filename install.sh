@@ -25,7 +25,7 @@ python3 -m pip install psycopg2 psycopg2-binary
 sudo apt install -y busybox-static bash-static fakeroot dmsetup kpartx netcat-openbsd nmap python3-psycopg2 snmp uml-utilities util-linux vlan
 
 # for binwalk
-wget https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v2.3.4.tar.gz && \
+wget https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v2.3.4.tar.gz --no-check-certificate&& \
   tar -xf v2.3.4.tar.gz && \
   cd binwalk-2.3.4 && \
   sed -i 's/^install_ubireader//g' deps.sh && \
@@ -43,7 +43,7 @@ sudo apt install -y python3-magic openjdk-8-jdk unrar
 # for analyzer, initializer
 sudo apt install -y python3-bs4
 python3 -m pip install selenium
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb --no-check-certificate
 sudo dpkg -i google-chrome-stable_current_amd64.deb; sudo apt -fy install
 rm google-chrome-stable_current_amd64.deb
 python3 -m pip install -r ./analyses/routersploit/requirements.txt
@@ -53,7 +53,7 @@ cd ./analyses/routersploit && patch -p1 < ../routersploit_patch && cd -
 sudo apt install -y qemu-system-arm qemu-system-mips qemu-system-x86 qemu-utils
 
 if ! test -e "./analyses/chromedriver"; then
-    wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip --no-check-certificate
     unzip chromedriver_linux64.zip -d ./analyses/
     rm -rf chromedriver_linux64.zip
 fi
