@@ -3,7 +3,7 @@
 set -e
 
 download(){
- wget -N --continue -P./binaries/ $*
+ wget -N --continue -P./binaries/ $* --no-check-certificate
 }
 
 echo "Downloading binaries..."
